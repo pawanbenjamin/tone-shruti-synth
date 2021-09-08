@@ -16,7 +16,7 @@ function Synth(props) {
     dispatch({ type: "gain-node", value: gainNode });
   }, []);
 
-  return <div></div>;
+  return null;
 }
 
 export default Synth;

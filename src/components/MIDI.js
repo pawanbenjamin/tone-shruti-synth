@@ -54,7 +54,7 @@ function MIDI(props) {
     });
   }, []);
 
-  return <div>Midi</div>;
+  return null;
 }
 
 export default MIDI;

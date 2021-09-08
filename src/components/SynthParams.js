@@ -6,9 +6,6 @@ import { store } from "../state";
 function SynthParams(props) {
   const { state, dispatch } = useContext(store);
 
-  // Master Gain
-  // const [masterGain, setMasterGain] = useState(1);
-
   // Envelope State Variables
   const [volume, setVolume] = useState(-5);
   const [detune, setDetune] = useState(0);
@@ -68,17 +65,8 @@ function SynthParams(props) {
     type,
   ]);
 
-  // Master Gain Use Effect
-  // useEffect(() => {
-  //   console.log(masterGain);
-  //   if (state.gainNode !== undefined) {
-  //     const now = Tone.now();
-  //     state.gainNode.gain.rampTo(masterGain, now);
-  //   }
-  // }, [masterGain]);
-
   return (
-    <div>
+    <div className="synth-param-container">
       <div>
         <label>Volume:</label>
         <input
@@ -152,7 +140,6 @@ function SynthParams(props) {
           <option selected value="linear">
             Linear
           </option>
-
           <option value="exponential">Exponential</option>
         </select>
       </div>
@@ -201,7 +188,6 @@ function SynthParams(props) {
       <div className="single-param">
         <label htmlFor=""></label>
       </div>
-
       <div className="single-param">
         <label htmlFor="">Type</label>
         <select onChange={(e) => setType(e.target.value)}>
