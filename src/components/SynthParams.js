@@ -66,10 +66,11 @@ function SynthParams(props) {
   ]);
 
   return (
-    <div className="synth-param-container">
-      <div>
-        <label>Volume:</label>
+    <div className="synth_synth-param-container">
+      <div className="synth_synth-param-container_single-param">
+        <label className="label">Volume:</label>
         <input
+          className="label"
           type="range"
           min="-40"
           max="10"
@@ -80,9 +81,12 @@ function SynthParams(props) {
           }}
         />
       </div>
-      <div className="single-param">
-        <label htmlFor="">Detune</label>
+      <div className="synth_synth-param-container_single-param">
+        <label className="label" htmlFor="">
+          Detune
+        </label>
         <input
+          className="label"
           type="range"
           min="-100"
           max="100"
@@ -91,9 +95,12 @@ function SynthParams(props) {
           onChange={(e) => setDetune(e.target.value)}
         />
       </div>
-      <div className="single-param">
-        <label htmlFor="">Portamento</label>
+      <div className="synth_synth-param-container_single-param">
+        <label className="label" htmlFor="">
+          Portamento
+        </label>
         <input
+          className="label"
           type="range"
           min="0"
           max="100"
@@ -102,9 +109,12 @@ function SynthParams(props) {
           onChange={(e) => setPortamento(e.target.value)}
         />
       </div>
-      <div className="single-param">
-        <label htmlFor="">Attack</label>
+      <div className="synth_synth-param-container_single-param">
+        <label className="label" htmlFor="">
+          Attack
+        </label>
         <input
+          className="label"
           type="range"
           min="0"
           max="10"
@@ -113,8 +123,10 @@ function SynthParams(props) {
           onChange={(e) => setAttack(e.target.value)}
         />
       </div>
-      <div className="single-param">
-        <label htmlFor="">Attack Curve:</label>
+      <div className="synth_synth-param-container_single-param">
+        <label className="label" htmlFor="">
+          Attack Curve:
+        </label>
         <select name="" id="" onChange={(e) => setAttackCurve(e.target.value)}>
           <option selected value="linear">
             Linear
@@ -123,9 +135,12 @@ function SynthParams(props) {
           <option value="exponential">Exponential</option>
         </select>
       </div>
-      <div className="single-param">
-        <label htmlFor="">Decay:</label>
+      <div className="synth_synth-param-container_single-param">
+        <label className="label" htmlFor="">
+          Decay:
+        </label>
         <input
+          className="label"
           type="range"
           defaultValue={decay}
           min="0.1"
@@ -134,8 +149,10 @@ function SynthParams(props) {
           onChange={(e) => setDecay(e.target.value)}
         />
       </div>
-      <div className="single-param">
-        <label htmlFor="">Decay Curve:</label>
+      <div className="synth_synth-param-container_single-param">
+        <label className="label" htmlFor="">
+          Decay Curve:
+        </label>
         <select name="" id="" onChange={(e) => setDecayCurve(e.target.value)}>
           <option selected value="linear">
             Linear
@@ -143,9 +160,12 @@ function SynthParams(props) {
           <option value="exponential">Exponential</option>
         </select>
       </div>
-      <div className="single-param">
-        <label htmlFor="">Release</label>
+      <div className="synth_synth-param-container_single-param">
+        <label className="label" htmlFor="">
+          Release
+        </label>
         <input
+          className="label"
           type="range"
           min="1"
           max="3"
@@ -154,8 +174,10 @@ function SynthParams(props) {
           onChange={(e) => setRelease(e.target.value)}
         />
       </div>
-      <div className="single-param">
-        <label htmlFor="">Release Curve:</label>
+      <div className="synth_synth-param-container_single-param">
+        <label className="label" htmlFor="">
+          Release Curve:
+        </label>
         <select name="" id="" onChange={(e) => setReleaseCurve(e.target.value)}>
           <option selected value="linear">
             Linear
@@ -163,9 +185,12 @@ function SynthParams(props) {
           <option value="exponential">Exponential</option>
         </select>
       </div>
-      <div className="single-param">
-        <label htmlFor="">Sustain</label>
+      <div className="synth_synth-param-container_single-param">
+        <label className="label" htmlFor="">
+          Sustain
+        </label>
         <input
+          className="label"
           type="range"
           min="0"
           max="1"
@@ -174,9 +199,12 @@ function SynthParams(props) {
           onChange={(e) => setSustain(e.target.value)}
         />
       </div>
-      <div className="single-param">
-        <label htmlFor="">Partial Count</label>
+      <div className="synth_synth-param-container_single-param">
+        <label className="label" htmlFor="">
+          Partial Count
+        </label>
         <input
+          className="label"
           type="range"
           min="0"
           max="15"
@@ -185,11 +213,13 @@ function SynthParams(props) {
           onChange={(e) => setPartialCount(e.target.value)}
         />
       </div>
-      <div className="single-param">
-        <label htmlFor=""></label>
+      <div className="synth_synth-param-container_single-param">
+        <label className="label" htmlFor=""></label>
       </div>
-      <div className="single-param">
-        <label htmlFor="">Type</label>
+      <div className="synth_synth-param-container_single-param">
+        <label className="label" htmlFor="">
+          Type
+        </label>
         <select onChange={(e) => setType(e.target.value)}>
           <option selected value="sine">
             Sine

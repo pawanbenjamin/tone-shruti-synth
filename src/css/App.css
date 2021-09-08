@@ -19,4 +19,25 @@ body {
   border-radius: 20px; }
 
 .App {
-  background-color: green; }
+  background-color: green;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.synth {
+  display: flex;
+  flex-direction: row;
+  width: 50vw;
+  box-shadow: 1rem 0.5rem 0.5rem black; }
+  .synth_freq-table {
+    background-color: blueviolet;
+    width: 50%; }
+    .synth_freq-table_root-info {
+      background-color: lightsalmon; }
+    .synth_freq-table_note-ratios {
+      display: flex;
+      flex-direction: column;
+      align-items: center; }
+  .synth_synth-param-container {
+    background-color: chocolate; }

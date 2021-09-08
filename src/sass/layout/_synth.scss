@@ -1,0 +1,25 @@
+.synth {
+  display: flex;
+  flex-direction: row;
+  width: 50vw;
+  box-shadow: 1rem 0.5rem 0.5rem black;
+  &_freq-table {
+    background-color: blueviolet;
+    width: 50%;
+    &_root-info {
+      background-color: lightsalmon;
+      &_freq {
+      }
+    }
+    &_note-ratios {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  &_synth-param-container {
+    background-color: chocolate;
+    &_single-param {
+    }
+  }
+}
