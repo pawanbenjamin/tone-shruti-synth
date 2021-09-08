@@ -122,75 +122,157 @@ function FreqTable(props) {
 
   return (
     <div className="freq-table">
-      <button onClick={() => console.log(state)}>Log out Context State</button>
-      <div className="root-info">
-        <label>Root Freq:</label>
-        <input
-          type="text"
-          placeholder="432"
-          onChange={(e) => setRootFreq(e.target.value)}
-        />
-        <label>Root Key:</label>
-        <select className="root-note" onChange={changeKey}>
-          <option value="60">C</option>
-          <option value="61">C# / Db</option>
-          <option value="62">D</option>
-          <option value="63">D# / Eb</option>
-          <option value="64">E</option>
-          <option value="65">F</option>
-          <option value="66">F# / Gb</option>
-          <option value="67">G</option>
-          <option value="68">G# / Ab</option>
-          <option value="69" selected>
-            A
-          </option>
-          <option value="70">A# / Bb</option>
-          <option value="71">B</option>
-        </select>
+      <button className="btn" onClick={() => console.log(state)}>
+        Log out Context State
+      </button>
+      <div className="freq-table_root-info">
+        <div className="freq-table_root-info_freq">
+          <label className="label">Root Freq:</label>
+          <input
+            className="text-input"
+            type="text"
+            placeholder="432"
+            onChange={(e) => setRootFreq(e.target.value)}
+          />
+        </div>
+        <div className="freq-table_root-info_key">
+          <label className="label">Root Key:</label>
+          <select className="select" onChange={changeKey}>
+            <option className="option" value="60">
+              C
+            </option>
+            <option className="option" value="61">
+              C# / Db
+            </option>
+            <option className="option" value="62">
+              D
+            </option>
+            <option className="option" value="63">
+              D# / Eb
+            </option>
+            <option className="option" value="64">
+              E
+            </option>
+            <option className="option" value="65">
+              F
+            </option>
+            <option className="option" value="66">
+              F# / Gb
+            </option>
+            <option className="option" value="67">
+              G
+            </option>
+            <option className="option" value="68">
+              G# / Ab
+            </option>
+            <option className="option" value="69" selected>
+              A
+            </option>
+            <option className="option" value="70">
+              A# / Bb
+            </option>
+            <option className="option" value="71">
+              B
+            </option>
+          </select>
+        </div>
       </div>
-      <div className="note-ratios">
-        <label>Note Ratios:</label>
-        <span>Sa</span>
-        <select onChange={(e) => changeRatio(e, setKomalRe)}>
-          <option value="256/243">Ati Komal Re</option>
-          <option value="16/15">Komal Re</option>
+      <div className="freq-table_note-ratios">
+        <label className="label" className="label">
+          Note Ratios:
+        </label>
+        <select className="select">
+          <option value="1/1" className="option">
+            Sa
+          </option>
         </select>
-        <select onChange={(e) => changeRatio(e, setRe)}>
-          <option value="10/9">Shuddha Re</option>
-          <option value="9/8">Tivra Re</option>
+        <select className="select" onChange={(e) => changeRatio(e, setKomalRe)}>
+          <option className="option" value="256/243">
+            Ati Komal Re
+          </option>
+          <option className="option" value="16/15">
+            Komal Re
+          </option>
         </select>
-        <select onChange={(e) => changeRatio(e, setKomalGa)}>
-          <option value="32/27">Ati Komal Ga</option>
-          <option value="6/5">Komal Ga</option>
+        <select className="select" onChange={(e) => changeRatio(e, setRe)}>
+          <option className="option" value="10/9">
+            Shuddha Re
+          </option>
+          <option className="option" value="9/8">
+            Tivra Re
+          </option>
         </select>
-        <select onChange={(e) => changeRatio(e, setGa)}>
-          <option value="5/4">Shuddha Ga</option>
-          <option value="81/64">Tivra Ga</option>
+        <select className="select" onChange={(e) => changeRatio(e, setKomalGa)}>
+          <option className="option" value="32/27">
+            Ati Komal Ga
+          </option>
+          <option className="option" value="6/5">
+            Komal Ga
+          </option>
         </select>
-        <select onChange={(e) => changeRatio(e, setMa)}>
-          <option value="4/3">Shuddha Ma</option>
-          <option value="27/20">Shruti Ma</option>
+        <select className="select" onChange={(e) => changeRatio(e, setGa)}>
+          <option className="option" value="5/4">
+            Shuddha Ga
+          </option>
+          <option className="option" value="81/64">
+            Tivra Ga
+          </option>
         </select>
-        <select onChange={(e) => changeRatio(e, setTivraMa)}>
-          <option value="45/32">Tivra Ma</option>
-          <option value="729/512">Tivra Tivra Ma</option>
+        <select className="select" onChange={(e) => changeRatio(e, setMa)}>
+          <option className="option" value="4/3">
+            Shuddha Ma
+          </option>
+          <option className="option" value="27/20">
+            Shruti Ma
+          </option>
         </select>
-        <span>Pa</span>
-        <select onChange={(e) => changeRatio(e, setKomalDha)}>
-          <option value="128/81">Ati Komal Dha</option>
-          <option value="8/5">Komal Dha</option>
+        <select className="select" onChange={(e) => changeRatio(e, setTivraMa)}>
+          <option className="option" value="45/32">
+            Tivra Ma
+          </option>
+          <option className="option" value="729/512">
+            Tivra Tivra Ma
+          </option>
         </select>
-        <select onChange={(e) => changeRatio(e, setDha)}>
-          <option value="5/3">Shuddha Dha</option>
-          <option value="27/16">Tivra Dha</option>
+        <select className="select">
+          <option value="3/2" className="option">
+            Pa
+          </option>
         </select>
-        <select onChange={(e) => changeRatio(e, setKomalNi)}>
-          <option value="16/9">Ati Komal Ni</option>
-          <option value="9/5">Komal Ni</option>
+        <select
+          className="select"
+          onChange={(e) => changeRatio(e, setKomalDha)}
+        >
+          <option className="option" value="128/81">
+            Ati Komal Dha
+          </option>
+          <option className="option" value="8/5">
+            Komal Dha
+          </option>
         </select>
-        <select onChange={(e) => changeRatio(e, setNi)}>
-          <option value="15/8">Shuddha Ni</option>
-          <option value="243/128">Tivra Ni</option>
+        <select className="select" onChange={(e) => changeRatio(e, setDha)}>
+          <option className="option" value="5/3">
+            Shuddha Dha
+          </option>
+          <option className="option" value="27/16">
+            Tivra Dha
+          </option>
+        </select>
+        <select className="select" onChange={(e) => changeRatio(e, setKomalNi)}>
+          <option className="option" value="16/9">
+            Ati Komal Ni
+          </option>
+          <option className="option" value="9/5">
+            Komal Ni
+          </option>
+        </select>
+        <select className="select" onChange={(e) => changeRatio(e, setNi)}>
+          <option className="option" value="15/8">
+            Shuddha Ni
+          </option>
+          <option className="option" value="243/128">
+            Tivra Ni
+          </option>
         </select>
       </div>
     </div>

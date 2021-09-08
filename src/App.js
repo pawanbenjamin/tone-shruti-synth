@@ -1,5 +1,5 @@
 import logo from "./logo.svg";
-import "./App.css";
+import "./css/App.css";
 import * as Tone from "tone";
 import MIDI from "./components/MIDI";
 import Synth from "./components/Synth";
@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <MIDI />
       <Synth />
-      <div className="controls">
+      <div className="synth">
         <FreqTable />
         <SynthParams />
       </div>
