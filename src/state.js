@@ -21,6 +21,13 @@ const StateProvider = ({ children }) => {
         };
         return newState;
       }
+      case "freq-table": {
+        const newState = {
+          ...oldState,
+          freqTable: action.value,
+        };
+        return newState;
+      }
       default:
         throw new Error();
     }

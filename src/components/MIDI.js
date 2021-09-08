@@ -5,56 +5,11 @@ import * as Tone from "tone";
 function MIDI(props) {
   const { state, dispatch } = useContext(store);
 
-  useEffect(() => {
-    const synth = new Tone.PolySynth().toDestination();
-    dispatch({ type: "synth", value: synth });
-  }, []);
-
   const [noteObj, setNoteObj] = useState({});
-
-  //   const poly = useRef(synth);
-
-  const handleNote = (noteObj) => {
-    const now = Tone.now();
-    if (noteObj.command === 144) {
-      keyDown(noteObj.note, now, noteObj.velocity);
-    }
-    if (noteObj.command === 128) {
-      //   keyUp();
-    }
-  };
-
-  const keyDown = (note, time, velocity) => {
-    state.synth.set({
-      volume: 0,
-      detune: 0,
-      portamento: 0,
-      envelope: {
-        attack: 0.005,
-        attackCurve: "linear",
-        decay: 0.1,
-        decayCurve: "exponential",
-        release: 1,
-        releaseCurve: "exponential",
-        sustain: 0.3,
-      },
-      oscillator: {
-        partialCount: 0,
-        partials: [],
-        phase: 0,
-        type: "triangle",
-      },
-    });
-    state.synth.triggerAttackRelease(note, "8n");
-  };
-
-  //   const keyUp = () => {
-  //     synth.triggerRelease();
-  //   };
 
   useEffect(() => {
     dispatch({ type: "note-obj", value: noteObj });
-    handleNote(noteObj);
+    console.log(state);
   }, [noteObj]);
 
   function getMIDIMessage(midiMessage) {

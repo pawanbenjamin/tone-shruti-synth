@@ -1,42 +1,26 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useEffect, useContext } from "react";
+import { store } from "../state";
 import * as Tone from "tone";
 
-import { store } from "../state";
-
-const polyVoices = 16;
+// export const handleNote = (noteObj) => {
+//   const now = Tone.now();
+//   if (noteObj.command === 144) {
+//     keyDown(noteObj.note, now, noteObj.velocity);
+//   }
+//   if (noteObj.command === 128) {
+//     //   keyUp();
+//   }
+// };
 
 function Synth(props) {
   const { state, dispatch } = useContext(store);
 
   useEffect(() => {
-    const synth = new Tone.Synth().toDestination();
+    const synth = new Tone.PolySynth().toDestination();
     dispatch({ type: "synth", value: synth });
   }, []);
 
-  const handleNote = (noteObj) => {
-    const now = Tone.now();
-    if (noteObj.command === 144) {
-      keyDown(noteObj.note, now, noteObj.velocity);
-    }
-  };
-
-  const keyDown = (note, time, velocity) => {
-    state.synth.triggerAttach(note, time, velocity);
-  };
-
-  const keyUp = () => {};
-
-  return (
-    <div>
-      <button
-        onClick={() => {
-          console.log(state);
-        }}
-      >
-        Click
-      </button>
-    </div>
-  );
+  return <div></div>;
 }
 
 export default Synth;
