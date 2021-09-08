@@ -28,6 +28,13 @@ const StateProvider = ({ children }) => {
         };
         return newState;
       }
+      case "gain-node": {
+        const newState = {
+          ...oldState,
+          gainNode: action.value,
+        };
+        return newState;
+      }
       default:
         throw new Error();
     }

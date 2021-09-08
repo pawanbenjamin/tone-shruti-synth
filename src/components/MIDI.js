@@ -9,7 +9,20 @@ function MIDI(props) {
 
   useEffect(() => {
     dispatch({ type: "note-obj", value: noteObj });
-    console.log(state);
+  }, [noteObj]);
+
+  useEffect(() => {
+    if (noteObj.command === 144) {
+      if (state.freqTable !== undefined) {
+        const now = Tone.now();
+        const freq = state.freqTable[noteObj.note];
+        state.synth.triggerAttack(freq, now, noteObj.velocity);
+      }
+    } else if (noteObj.command === 128) {
+      const now = Tone.now();
+      const freq = state.freqTable[noteObj.note];
+      state.synth.triggerRelease(freq, now + 0.05);
+    }
   }, [noteObj]);
 
   function getMIDIMessage(midiMessage) {

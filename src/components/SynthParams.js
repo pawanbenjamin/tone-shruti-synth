@@ -1,30 +1,220 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
+import * as Tone from "tone";
+
+import { store } from "../state";
 
 function SynthParams(props) {
-  const keyDown = (note, time, velocity) => {
-    state.synth.set({
-      volume: 0,
-      detune: 0,
-      portamento: 0,
-      envelope: {
-        attack: 0.005,
-        attackCurve: "linear",
-        decay: 0.1,
-        decayCurve: "exponential",
-        release: 1,
-        releaseCurve: "exponential",
-        sustain: 0.3,
-      },
-      oscillator: {
-        partialCount: 0,
-        partials: [],
-        phase: 0,
-        type: "triangle",
-      },
-    });
-    state.synth.triggerAttackRelease(note, "8n");
-  };
-  return <div></div>;
+  const { state, dispatch } = useContext(store);
+
+  // Master Gain
+  // const [masterGain, setMasterGain] = useState(1);
+
+  // Envelope State Variables
+  const [volume, setVolume] = useState(-5);
+  const [detune, setDetune] = useState(0);
+  const [portamento, setPortamento] = useState(0);
+  const [attack, setAttack] = useState(0.005);
+  const [attackCurve, setAttackCurve] = useState("linear");
+  const [decay, setDecay] = useState(0.1);
+  const [decayCurve, setDecayCurve] = useState("exponential");
+  const [release, setRelease] = useState(1);
+  const [releaseCurve, setReleaseCurve] = useState("exponential");
+  const [sustain, setSustain] = useState(0.3);
+
+  // Oscillator Variables
+  const [partialCount, setPartialCount] = useState(0);
+  const [partials, setPartials] = useState([]);
+  const [phase, setPhase] = useState(0);
+  const [type, setType] = useState("sine");
+
+  // Synth Paramps Use Effect
+  useEffect(() => {
+    if (state.synth !== undefined) {
+      state.synth.set({
+        volume: volume,
+        detune: detune,
+        portamento: portamento,
+        envelope: {
+          attack: attack,
+          attackCurve: attackCurve,
+          decay: decay,
+          decayCurve: decayCurve,
+          release: release,
+          releaseCurve: releaseCurve,
+          sustain: sustain,
+        },
+        oscillator: {
+          partialCount: partialCount,
+          partials: partials,
+          phase: phase,
+          type: type,
+        },
+      });
+    }
+  }, [
+    volume,
+    detune,
+    portamento,
+    attack,
+    attackCurve,
+    decay,
+    decayCurve,
+    release,
+    releaseCurve,
+    sustain,
+    partialCount,
+    partials,
+    phase,
+    type,
+  ]);
+
+  // Master Gain Use Effect
+  // useEffect(() => {
+  //   console.log(masterGain);
+  //   if (state.gainNode !== undefined) {
+  //     const now = Tone.now();
+  //     state.gainNode.gain.rampTo(masterGain, now);
+  //   }
+  // }, [masterGain]);
+
+  return (
+    <div>
+      <div>
+        <label>Volume:</label>
+        <input
+          type="range"
+          min="-40"
+          max="10"
+          step="1"
+          defaultValue={volume}
+          onChange={(e) => {
+            setVolume(e.target.value);
+          }}
+        />
+      </div>
+      <div className="single-param">
+        <label htmlFor="">Detune</label>
+        <input
+          type="range"
+          min="-100"
+          max="100"
+          step="1"
+          defaultValue={detune}
+          onChange={(e) => setDetune(e.target.value)}
+        />
+      </div>
+      <div className="single-param">
+        <label htmlFor="">Portamento</label>
+        <input
+          type="range"
+          min="0"
+          max="100"
+          step="1"
+          defaultValue={portamento}
+          onChange={(e) => setPortamento(e.target.value)}
+        />
+      </div>
+      <div className="single-param">
+        <label htmlFor="">Attack</label>
+        <input
+          type="range"
+          min="0"
+          max="10"
+          step="0.1"
+          defaultValue={attack}
+          onChange={(e) => setAttack(e.target.value)}
+        />
+      </div>
+      <div className="single-param">
+        <label htmlFor="">Attack Curve:</label>
+        <select name="" id="" onChange={(e) => setAttackCurve(e.target.value)}>
+          <option selected value="linear">
+            Linear
+          </option>
+
+          <option value="exponential">Exponential</option>
+        </select>
+      </div>
+      <div className="single-param">
+        <label htmlFor="">Decay:</label>
+        <input
+          type="range"
+          defaultValue={decay}
+          min="0.1"
+          max="1.0"
+          step="0.01"
+          onChange={(e) => setDecay(e.target.value)}
+        />
+      </div>
+      <div className="single-param">
+        <label htmlFor="">Decay Curve:</label>
+        <select name="" id="" onChange={(e) => setDecayCurve(e.target.value)}>
+          <option selected value="linear">
+            Linear
+          </option>
+
+          <option value="exponential">Exponential</option>
+        </select>
+      </div>
+      <div className="single-param">
+        <label htmlFor="">Release</label>
+        <input
+          type="range"
+          min="1"
+          max="3"
+          step=".1"
+          defaultValue={release}
+          onChange={(e) => setRelease(e.target.value)}
+        />
+      </div>
+      <div className="single-param">
+        <label htmlFor="">Release Curve:</label>
+        <select name="" id="" onChange={(e) => setReleaseCurve(e.target.value)}>
+          <option selected value="linear">
+            Linear
+          </option>
+          <option value="exponential">Exponential</option>
+        </select>
+      </div>
+      <div className="single-param">
+        <label htmlFor="">Sustain</label>
+        <input
+          type="range"
+          min="0"
+          max="1"
+          step="0.01"
+          defaultValue={sustain}
+          onChange={(e) => setSustain(e.target.value)}
+        />
+      </div>
+      <div className="single-param">
+        <label htmlFor="">Partial Count</label>
+        <input
+          type="range"
+          min="0"
+          max="15"
+          step="1"
+          defaultValue={partialCount}
+          onChange={(e) => setPartialCount(e.target.value)}
+        />
+      </div>
+      <div className="single-param">
+        <label htmlFor=""></label>
+      </div>
+
+      <div className="single-param">
+        <label htmlFor="">Type</label>
+        <select onChange={(e) => setType(e.target.value)}>
+          <option selected value="sine">
+            Sine
+          </option>
+          <option value="triangle">Triange</option>
+          <option value="sawtooth">Sawtooth</option>
+          <option value="square">Square</option>
+        </select>
+      </div>
+    </div>
+  );
 }
 
 export default SynthParams;

@@ -2,22 +2,18 @@ import React, { useEffect, useContext } from "react";
 import { store } from "../state";
 import * as Tone from "tone";
 
-// export const handleNote = (noteObj) => {
-//   const now = Tone.now();
-//   if (noteObj.command === 144) {
-//     keyDown(noteObj.note, now, noteObj.velocity);
-//   }
-//   if (noteObj.command === 128) {
-//     //   keyUp();
-//   }
-// };
-
 function Synth(props) {
   const { state, dispatch } = useContext(store);
 
   useEffect(() => {
-    const synth = new Tone.PolySynth().toDestination();
+    const synth = new Tone.PolySynth();
+    const gainNode = new Tone.Gain(0).toDestination();
+
+    synth.connect(gainNode);
+    gainNode.gain.rampTo(0.0012, 0.1);
+
     dispatch({ type: "synth", value: synth });
+    dispatch({ type: "gain-node", value: gainNode });
   }, []);
 
   return <div></div>;
