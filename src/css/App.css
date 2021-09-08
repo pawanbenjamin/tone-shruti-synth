@@ -16,7 +16,10 @@ body {
   border-radius: 5rem; }
 
 .select {
-  border-radius: 20px; }
+  color: chartreuse;
+  margin: 0.5rem;
+  background-color: transparent;
+  border-radius: 1rem; }
 
 .App {
   background-color: green;
@@ -40,4 +43,11 @@ body {
       flex-direction: column;
       align-items: center; }
   .synth_synth-param-container {
-    background-color: chocolate; }
+    width: 50%;
+    background-color: chocolate;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; }
+    .synth_synth-param-container_single-param {
+      margin: 0.5rem; }

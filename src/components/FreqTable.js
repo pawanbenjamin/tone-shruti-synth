@@ -183,60 +183,60 @@ function FreqTable(props) {
         </label>
         <select className="select">
           <option value="1/1" className="option">
-            Sa
+            Sa 1/1
           </option>
         </select>
         <select className="select" onChange={(e) => changeRatio(e, setKomalRe)}>
           <option className="option" value="256/243">
-            Ati Komal Re
+            Ati Komal Re 256/243
           </option>
           <option className="option" value="16/15">
-            Komal Re
+            Komal Re 16/15
           </option>
         </select>
         <select className="select" onChange={(e) => changeRatio(e, setRe)}>
           <option className="option" value="10/9">
-            Shuddha Re
+            Shuddha Re 10/9
           </option>
           <option className="option" value="9/8">
-            Tivra Re
+            Tivra Re 9/8
           </option>
         </select>
         <select className="select" onChange={(e) => changeRatio(e, setKomalGa)}>
           <option className="option" value="32/27">
-            Ati Komal Ga
+            Ati Komal Ga 32/27
           </option>
           <option className="option" value="6/5">
-            Komal Ga
+            Komal Ga 6/5
           </option>
         </select>
         <select className="select" onChange={(e) => changeRatio(e, setGa)}>
           <option className="option" value="5/4">
-            Shuddha Ga
+            Shuddha Ga 5/4
           </option>
           <option className="option" value="81/64">
-            Tivra Ga
+            Tivra Ga 81/64
           </option>
         </select>
         <select className="select" onChange={(e) => changeRatio(e, setMa)}>
           <option className="option" value="4/3">
-            Shuddha Ma
+            Shuddha Ma 4/3
           </option>
           <option className="option" value="27/20">
-            Shruti Ma
+            Shruti Ma 27/20
           </option>
         </select>
         <select className="select" onChange={(e) => changeRatio(e, setTivraMa)}>
           <option className="option" value="45/32">
-            Tivra Ma
+            Tivra Ma 45/32
           </option>
           <option className="option" value="729/512">
-            Tivra Tivra Ma
+            Tivra Tivra Ma 729/512
           </option>
         </select>
         <select className="select">
           <option value="3/2" className="option">
-            Pa
+            Pa 3/2
           </option>
         </select>
         <select
@@ -244,34 +244,34 @@ function FreqTable(props) {
           onChange={(e) => changeRatio(e, setKomalDha)}
         >
           <option className="option" value="128/81">
-            Ati Komal Dha
+            Ati Komal Dha 128/81
           </option>
           <option className="option" value="8/5">
-            Komal Dha
+            Komal Dha 8/5
           </option>
         </select>
         <select className="select" onChange={(e) => changeRatio(e, setDha)}>
           <option className="option" value="5/3">
-            Shuddha Dha
+            Shuddha Dha 5/3
           </option>
           <option className="option" value="27/16">
-            Tivra Dha
+            Tivra Dha 27/16
           </option>
         </select>
         <select className="select" onChange={(e) => changeRatio(e, setKomalNi)}>
           <option className="option" value="16/9">
-            Ati Komal Ni
+            Ati Komal Ni 16/9
           </option>
           <option className="option" value="9/5">
-            Komal Ni
+            Komal Ni 9/5
           </option>
         </select>
         <select className="select" onChange={(e) => changeRatio(e, setNi)}>
           <option className="option" value="15/8">
-            Shuddha Ni
+            Shuddha Ni 15/8
           </option>
           <option className="option" value="243/128">
-            Tivra Ni
+            Tivra Ni 243/128
           </option>
         </select>
       </div>
