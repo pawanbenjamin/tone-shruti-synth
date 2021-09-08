@@ -11,8 +11,10 @@ function App() {
     <div className="App">
       <MIDI />
       <Synth />
-      <FreqTable />
-      <SynthParams />
+      <div className="controls">
+        <FreqTable />
+        <SynthParams />
+      </div>
     </div>
   );
 }
