@@ -16,7 +16,7 @@ function App() {
         <FreqTable />
         <SynthParams />
       </div>
-      {/* <WaveBkg /> */}
+      <WaveBkg />
     </div>
   );
 }
