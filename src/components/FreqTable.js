@@ -126,16 +126,16 @@ function FreqTable(props) {
         Log out Context State
       </button> */}
       <div className="synth_freq-table_root-info">
-        <div className="synth_freq-table_root-info_freq">
-          <label className="label">Root Freq:</label>
+        <div className="root-container"></div>
+
+        <div className="synth_freq-table_root-info_key">
+          <label className="rootF_label">Root Freq:</label>
           <input
             className="text-input"
             type="text"
             placeholder="432"
             onChange={(e) => setRootFreq(e.target.value)}
           />
-        </div>
-        <div className="synth_freq-table_root-info_key">
           <label className="label">Root Key:</label>
           <select className="select" onChange={changeKey}>
             <option className="option" value="60">

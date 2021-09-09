@@ -70,7 +70,7 @@ function SynthParams(props) {
       <div className="synth_synth-param-container_single-param">
         <label className="label">Volume:</label>
         <input
-          className="label"
+          className="input"
           type="range"
           min="-40"
           max="10"
@@ -86,7 +86,7 @@ function SynthParams(props) {
           Detune
         </label>
         <input
-          className="label"
+          className="input"
           type="range"
           min="-100"
           max="100"
@@ -100,7 +100,7 @@ function SynthParams(props) {
           Portamento
         </label>
         <input
-          className="label"
+          className="input"
           type="range"
           min="0"
           max="100"
@@ -114,7 +114,7 @@ function SynthParams(props) {
           Attack
         </label>
         <input
-          className="label"
+          className="input"
           type="range"
           min="0"
           max="10"
@@ -140,7 +140,7 @@ function SynthParams(props) {
           Decay:
         </label>
         <input
-          className="label"
+          className="input"
           type="range"
           defaultValue={decay}
           min="0.1"
@@ -204,7 +204,7 @@ function SynthParams(props) {
           Partial Count
         </label>
         <input
-          className="label"
+          className="input"
           type="range"
           min="0"
           max="15"
@@ -213,12 +213,10 @@ function SynthParams(props) {
           onChange={(e) => setPartialCount(e.target.value)}
         />
       </div>
-      <div className="synth_synth-param-container_single-param">
-        <label className="label" htmlFor=""></label>
-      </div>
+
       <div className="synth_synth-param-container_single-param">
         <label className="label" htmlFor="">
-          Type
+          Wave Type
         </label>
         <select onChange={(e) => setType(e.target.value)}>
           <option selected value="sine">
