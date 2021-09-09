@@ -122,9 +122,9 @@ function FreqTable(props) {
 
   return (
     <div className="synth_freq-table">
-      <button className="btn" onClick={() => console.log(state)}>
+      {/* <button className="btn" onClick={() => console.log(state)}>
         Log out Context State
-      </button>
+      </button> */}
       <div className="synth_freq-table_root-info">
         <div className="synth_freq-table_root-info_freq">
           <label className="label">Root Freq:</label>
