@@ -1,19 +1,19 @@
-// import * as THREE from "three";
-// import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-// import {
-//   Canvas,
-//   extend,
-//   useFrame,
-//   useLoader,
-//   useThree,
-// } from "@react-three/fiber";
-// import circleImg from "../assets/circle.png";
-// import { Suspense, useCallback, useMemo, useRef, useContext } from "react";
+import * as THREE from "three";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import {
+  Canvas,
+  extend,
+  useFrame,
+  useLoader,
+  useThree,
+} from "@react-three/fiber";
+import circleImg from "../assets/circle.png";
+import { Suspense, useCallback, useMemo, useRef, useContext } from "react";
 
-// import { store } from "../state";
-// import { useEffect } from "react/cjs/react.development";
+import { store } from "../state";
+import { useEffect } from "react/cjs/react.development";
 
-// extend({ OrbitControls });
+extend({ OrbitControls });
 
 // function CameraControls() {
 //   const {
@@ -129,14 +129,14 @@
 //   );
 // }
 
-// function WaveBkg(props) {
-//   return (
-//     <div className="anime">
-//       <Suspense className="canvas-parent" fallback={<div>Loading...</div>}>
-//         <AnimationCanvas />
-//       </Suspense>
-//     </div>
-//   );
-// }
+function WaveBkg(props) {
+  return (
+    <div className="anime">
+      {/* <Suspense className="canvas-parent" fallback={<div>Loading...</div>}>
+        <AnimationCanvas />
+      </Suspense> */}
+    </div>
+  );
+}
 
-// export default WaveBkg;
+export default WaveBkg;
