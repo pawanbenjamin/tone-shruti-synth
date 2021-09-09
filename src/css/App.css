@@ -1,55 +1,19 @@
-*,
-*::after,
-*::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit; }
-
-html {
-  font-size: 62.5%; }
-
 body {
-  box-sizing: border-box; }
-
-.btn {
-  background-color: red;
-  border-radius: 5rem; }
-
-.select {
-  color: chartreuse;
-  margin: 0.5rem;
-  background-color: transparent;
-  border-radius: 1rem; }
+  background-color: black;
+}
 
 .App {
-  background-color: green;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center; }
+  position: relative;
+}
 
 .synth {
-  display: flex;
-  flex-direction: row;
-  width: 50vw;
-  box-shadow: 1rem 0.5rem 0.5rem black; }
-  .synth_freq-table {
-    background-color: blueviolet;
-    width: 50%; }
-    .synth_freq-table_root-info {
-      background-color: lightsalmon;
-      display: flex;
-      justify-content: space-around; }
-    .synth_freq-table_note-ratios {
-      display: flex;
-      flex-direction: column;
-      align-items: center; }
-  .synth_synth-param-container {
-    width: 50%;
-    background-color: chocolate;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; }
-    .synth_synth-param-container_single-param {
-      margin: 0.5rem; }
+  position: absolute;
+  z-index: 1;
+}
+
+.anime {
+  position: absolute;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+}
