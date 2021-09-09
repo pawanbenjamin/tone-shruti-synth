@@ -8,6 +8,8 @@
     width: 50%;
     &_root-info {
       background-color: lightsalmon;
+      display: flex;
+      justify-content: space-around;
       &_freq {
       }
     }

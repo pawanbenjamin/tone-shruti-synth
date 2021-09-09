@@ -37,7 +37,9 @@ body {
     background-color: blueviolet;
     width: 50%; }
     .synth_freq-table_root-info {
-      background-color: lightsalmon; }
+      background-color: lightsalmon;
+      display: flex;
+      justify-content: space-around; }
     .synth_freq-table_note-ratios {
       display: flex;
       flex-direction: column;
