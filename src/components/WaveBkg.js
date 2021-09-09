@@ -1,25 +1,25 @@
-import * as THREE from "three";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import {
-  Canvas,
-  extend,
-  useFrame,
-  useLoader,
-  useThree,
-} from "react-three-fiber";
-import circleImg from "../assets/circle.png";
-import {
-  Suspense,
-  useCallback,
-  useMemo,
-  useRef,
-  useContext,
-  useEffect,
-} from "react";
+// import * as THREE from "three";
+// import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+// import {
+//   Canvas,
+//   extend,
+//   useFrame,
+//   useLoader,
+//   useThree,
+// } from "react-three-fiber";
+// import circleImg from "../assets/circle.png";
+// import {
+//   Suspense,
+//   useCallback,
+//   useMemo,
+//   useRef,
+//   useContext,
+//   useEffect,
+// } from "react";
 
-import { store } from "../state";
+// import { store } from "../state";
 
-extend({ OrbitControls });
+// extend({ OrbitControls });
 
 // function CameraControls() {
 //   const {
