@@ -6,12 +6,18 @@ import {
   useFrame,
   useLoader,
   useThree,
-} from "@react-three/fiber";
+} from "react-three-fiber";
 import circleImg from "../assets/circle.png";
-import { Suspense, useCallback, useMemo, useRef, useContext } from "react";
+import {
+  Suspense,
+  useCallback,
+  useMemo,
+  useRef,
+  useContext,
+  useEffect,
+} from "react";
 
 import { store } from "../state";
-import { useEffect } from "react/cjs/react.development";
 
 extend({ OrbitControls });
 
