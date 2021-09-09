@@ -1,10 +1,11 @@
-import logo from "./logo.svg";
-import "./css/App.css";
-import * as Tone from "tone";
 import MIDI from "./components/MIDI";
 import Synth from "./components/Synth";
 import FreqTable from "./components/FreqTable";
 import SynthParams from "./components/SynthParams";
+import WaveBkg from "./components/WaveBkg";
+
+import logo from "./logo.svg";
+import "./css/App.css";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <FreqTable />
         <SynthParams />
       </div>
+      <WaveBkg />
     </div>
   );
 }
