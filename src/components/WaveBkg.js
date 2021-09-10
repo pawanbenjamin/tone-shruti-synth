@@ -1,4 +1,4 @@
-// import * as THREE from "three";
+import * as THREE from "three";
 // import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 // import {
 //   Canvas,
@@ -17,7 +17,7 @@
 //   useEffect,
 // } from "react";
 
-import { store } from "../state";
+// import { store } from "../state";
 
 // extend({ OrbitControls });
 
@@ -135,14 +135,14 @@ import { store } from "../state";
 //   );
 // }
 
-// function WaveBkg(props) {
-//   return (
-//     <div className="anime">
-//       <Suspense className="canvas-parent" fallback={<div>Loading...</div>}>
-//         <AnimationCanvas />
-//       </Suspense>
-//     </div>
-//   );
-// }
+function WaveBkg(props) {
+  return (
+    <div className="anime">
+      {/* <Suspense className="canvas-parent" fallback={<div>Loading...</div>}>
+        <AnimationCanvas />
+      </Suspense> */}
+    </div>
+  );
+}
 
-// export default WaveBkg;
+export default WaveBkg;
