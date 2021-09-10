@@ -4,7 +4,6 @@ import FreqTable from "./components/FreqTable";
 import SynthParams from "./components/SynthParams";
 import WaveBkg from "./components/WaveBkg";
 
-import logo from "./logo.svg";
 import "./css/App.css";
 
 function App() {
@@ -16,7 +15,7 @@ function App() {
         <FreqTable />
         <SynthParams />
       </div>
-      {/* <WaveBkg /> */}
+      <WaveBkg />
     </div>
   );
 }
