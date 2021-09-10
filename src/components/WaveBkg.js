@@ -8,14 +8,14 @@ import * as THREE from "three";
 //   useThree,
 // } from "@react-three/fiber";
 // import circleImg from "../assets/circle.png";
-import {
-  Suspense,
-  useCallback,
-  useMemo,
-  useRef,
-  useContext,
-  useEffect,
-} from "react";
+// import {
+//   Suspense,
+//   useCallback,
+//   useMemo,
+//   useRef,
+//   useContext,
+//   useEffect,
+// } from "react";
 
 import { store } from "../state";
 
