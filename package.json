@@ -10,7 +10,6 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "compile:sass": "node-sass src/sass/main.scss src/css/App.css -w",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -38,6 +37,7 @@
   },
   "devDependencies": {
     "@react-three/fiber": "^7.0.6",
+    "react-three-fiber": "^6.0.13",
     "three": "^0.132.2"
   }
 }
