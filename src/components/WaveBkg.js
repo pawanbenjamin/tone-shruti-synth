@@ -1,148 +1,150 @@
-// import * as THREE from "three";
-// import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-// import {
-//   Canvas,
-//   extend,
-//   useFrame,
-//   useLoader,
-//   useThree,
-// } from "@react-three/fiber";
-// import circleImg from "../assets/circle.png";
-// import {
-//   Suspense,
-//   useCallback,
-//   useMemo,
-//   useRef,
-//   useContext,
-//   useEffect,
-// } from "react";
 
-// import { store } from "../state";
+import * as THREE from "three";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import {
+  Canvas,
+  extend,
+  useFrame,
+  useLoader,
+  useThree,
+} from "@react-three/fiber";
+import circleImg from "../assets/circle.png";
+import {
+  Suspense,
+  useCallback,
+  useMemo,
+  useRef,
+  useContext,
+  useEffect,
+} from "react";
 
-// // extend({ OrbitControls });
+import { store } from "../state";
 
-// // function CameraControls() {
-// //   const {
-// //     camera,
-// //     gl: { domElement },
-// //   } = useThree();
+extend({ OrbitControls });
 
-// //   const controlsRef = useRef();
-// //   useFrame(() => controlsRef.current.update());
+function CameraControls() {
+  const {
+    camera,
+    gl: { domElement },
+  } = useThree();
 
-// //   return (
-// //     <orbitControls
-// //       ref={controlsRef}
-// //       args={[camera, domElement]}
-// //       autoRotate
-// //       autoRotateSpeed={-0.2}
-// //     />
-// //   );
-// // }
+  const controlsRef = useRef();
+  useFrame(() => controlsRef.current.update());
 
-// function Points({ state }) {
-//   console.log("INSIDE POINTS", state);
+  return (
+    <orbitControls
+      ref={controlsRef}
+      args={[camera, domElement]}
+      autoRotate
+      autoRotateSpeed={-0.2}
+    />
+  );
+}
 
-//   const imgTex = useLoader(THREE.TextureLoader, circleImg);
-//   const bufferRef = useRef();
+function Points({ state }) {
+  console.log("INSIDE POINTS", state);
 
-//   let t = 0;
-//   let f = state.freqTable[state.noteObj.note] / 100000;
-//   let a = 3;
+  const imgTex = useLoader(THREE.TextureLoader, circleImg);
+  const bufferRef = useRef();
 
-//   const graph = useCallback(
-//     (x, z) => {
-//       return Math.sin(f * (x ** 2 + z ** 2 + t)) * a;
-//     },
-//     [t, f, a]
-//   );
+  let t = 0;
+  let f = state.freqTable[state.noteObj.note] / 100000;
+  let a = 3;
 
-//   const count = 100;
-//   const sep = 3;
-//   let positions = useMemo(() => {
-//     let positions = [];
+  const graph = useCallback(
+    (x, z) => {
+      return Math.sin(f * (x ** 2 + z ** 2 + t)) * a;
+    },
+    [t, f, a]
+  );
 
-//     for (let xi = 0; xi < count; xi++) {
-//       for (let zi = 0; zi < count; zi++) {
-//         let x = sep * (xi - count / 2);
-//         let z = sep * (zi - count / 2);
-//         let y = graph(x, z);
-//         positions.push(x, y, z);
-//       }
-//     }
+  const count = 100;
+  const sep = 3;
+  let positions = useMemo(() => {
+    let positions = [];
 
-//     return new Float32Array(positions);
-//   }, [count, sep, graph, state.noteObj.note]);
+    for (let xi = 0; xi < count; xi++) {
+      for (let zi = 0; zi < count; zi++) {
+        let x = sep * (xi - count / 2);
+        let z = sep * (zi - count / 2);
+        let y = graph(x, z);
+        positions.push(x, y, z);
+      }
+    }
 
-//   useFrame(() => {
-//     t += 15;
+    return new Float32Array(positions);
+  }, [count, sep, graph, state.noteObj.note]);
 
-//     const positions = bufferRef.current.array;
+  useFrame(() => {
+    t += 15;
 
-//     let i = 0;
-//     for (let xi = 0; xi < count; xi++) {
-//       for (let zi = 0; zi < count; zi++) {
-//         let x = sep * (xi - count / 2);
-//         let z = sep * (zi - count / 2);
+    const positions = bufferRef.current.array;
 
-//         positions[i + 1] = graph(x, z);
-//         i += 3;
-//       }
-//     }
+    let i = 0;
+    for (let xi = 0; xi < count; xi++) {
+      for (let zi = 0; zi < count; zi++) {
+        let x = sep * (xi - count / 2);
+        let z = sep * (zi - count / 2);
 
-//     bufferRef.current.needsUpdate = true;
-//   });
+        positions[i + 1] = graph(x, z);
+        i += 3;
+      }
+    }
 
-//   return (
-//     <points>
-//       <bufferGeometry attach="geometry">
-//         <bufferAttribute
-//           ref={bufferRef}
-//           attachObject={["attributes", "position"]}
-//           array={positions}
-//           count={positions.length / 3}
-//           itemSize={3}
-//         />
-//       </bufferGeometry>
+    bufferRef.current.needsUpdate = true;
+  });
 
-//       <pointsMaterial
-//         attach="material"
-//         map={imgTex}
-//         color={0x00aaff}
-//         size={0.5}
-//         sizeAttenuation
-//         transparent={false}
-//         alphaTest={0.5}
-//         opacity={1.0}
-//       />
-//     </points>
-//   );
-// }
+  return (
+    <points>
+      <bufferGeometry attach="geometry">
+        <bufferAttribute
+          ref={bufferRef}
+          attachObject={["attributes", "position"]}
+          array={positions}
+          count={positions.length / 3}
+          itemSize={3}
+        />
+      </bufferGeometry>
 
-// function AnimationCanvas() {
-//   const { state, dispatch } = useContext(store);
+      <pointsMaterial
+        attach="material"
+        map={imgTex}
+        color={0x00aaff}
+        size={0.5}
+        sizeAttenuation
+        transparent={false}
+        alphaTest={0.5}
+        opacity={1.0}
+      />
+    </points>
+  );
+}
 
-//   return (
-//     <Canvas
-//       colorManagement={false}
-//       camera={{ position: [100, 10, 0], fov: 75 }}
-//     >
-//       <Suspense fallback={null}>
-//         <Points state={state} />
-//       </Suspense>
-//       {/* <CameraControls /> */}
-//     </Canvas>
-//   );
-// }
+function AnimationCanvas() {
+  const { state, dispatch } = useContext(store);
 
-// function WaveBkg(props) {
-//   return (
-//     <div className="anime">
-//       <Suspense className="canvas-parent" fallback={<div>Loading...</div>}>
-//         <AnimationCanvas />
-//       </Suspense>
-//     </div>
-//   );
-// }
+  return (
+    <Canvas
+      colorManagement={false}
+      camera={{ position: [100, 10, 0], fov: 75 }}
+    >
+      <Suspense fallback={null}>
+        <Points state={state} />
+      </Suspense>
+      <CameraControls />
+    </Canvas>
+  );
+}
 
-// export default WaveBkg;
+function WaveBkg(props) {
+  return (
+    <div className="anime">
+      <Suspense className="canvas-parent" fallback={<div>Loading...</div>}>
+        <AnimationCanvas />
+      </Suspense>
+    </div>
+  );
+}
+
+export default WaveBkg;
+
